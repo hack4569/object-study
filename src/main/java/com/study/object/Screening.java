@@ -12,28 +12,26 @@ import java.util.List;
 public class Screening {
     private Movie movie;
     private TimeTable timeTable;
-    private int count;
     private int sequence;
     private List<DiscountCondition> conditionList;
 
     @Builder
-    public Screening(Movie movie, TimeTable timeTable, int count, int sequence) {
+    public Screening(Movie movie, TimeTable timeTable, int sequence) {
         this.movie = movie;
         this.timeTable = timeTable;
-        this.count = count;
         this.sequence = sequence;
     }
 
-    public int calcPrice() {
-        return movie.calcFee(this);
+    public int calcPrice(int count) {
+        return movie.calcFee(this) * count;
     }
 
-    public Reservation getReserve() {
+    public Reservation reserve(int count) {
         return Reservation.builder()
-                .totalPrice(this.calcPrice())
+                .totalPrice(this.calcPrice(count))
                 .timeTable(this.timeTable)
                 .movie(this.movie)
-                .count(this.count)
+                .count(count)
                 .sequence(this.sequence)
                 .build();
     }

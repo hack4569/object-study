@@ -13,14 +13,4 @@ public class Reservation {
     private int count;
     private int totalPrice;
     private int sequence;
-
-    public Reservation reserve() {
-        Screening screening = Screening.builder().timeTable(timeTable)
-                .movie(movie)
-                .count(count)
-                .sequence(sequence)
-                .build();
-        return screening.getReserve();
-    }
-
 }

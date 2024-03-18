@@ -1,11 +1,12 @@
 package com.study.object;
 
 import com.study.object.policy.DiscountPolicy;
-import lombok.Getter;
-import lombok.Setter;
-
+import lombok.*;
 @Getter
 @Setter
+@AllArgsConstructor
+@Builder
+@NoArgsConstructor
 public class Movie {
     private int fee;
     private DiscountPolicy discountPolicy;
