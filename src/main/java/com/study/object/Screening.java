@@ -1,11 +1,8 @@
 package com.study.object;
 
-import com.study.object.condition.DiscountCondition;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.List;
 
 @Getter
 @Setter
@@ -13,7 +10,6 @@ public class Screening {
     private Movie movie;
     private TimeTable timeTable;
     private int sequence;
-    private List<DiscountCondition> conditionList;
 
     @Builder
     public Screening(Movie movie, TimeTable timeTable, int sequence) {
