@@ -7,7 +7,7 @@ import lombok.Builder;
 import java.util.ArrayList;
 import java.util.List;
 
-@Builder
+
 public abstract class DefaultDiscountPolicy {
     List<DiscountCondition> discountConditionList = new ArrayList<>();
     // 조건 여러개 중에 하나만 해당되어도 할인 적용
