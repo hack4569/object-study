@@ -1,26 +1,32 @@
 package com.study.object.dry;
 
-import lombok.Getter;
-import lombok.Setter;
-
-import java.time.Duration;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
-@Getter
-@Setter
-public class Phone extends AbstractPhone{
-    private Money amount;
-    private Duration seconds;
+/**
+ * <pre>
+ *
+ * </pre>
+ *
+ * @author Hong GilDong
+ */
+public class Phone {
+    private double taxRate;
+    private List<Call> calls = new ArrayList<>();
+    private RatePolicy policy;
 
-    public Phone(Money amount, Duration seconds, double taxRate) {
-        super(taxRate);
-        this.amount = amount;
-        this.seconds = seconds;
+    public Phone(RatePolicy policy) { this.policy = policy; }
+
+    public void call(Call call) {
+        calls.add(call);
     }
 
-    @Override
-    protected Money caluateFree(Call call) {
-        return amount.times(call.getDuration().getSeconds() / seconds.getSeconds());
+    public Money calculate() {
+        return policy.calculate(this);
+    }
+
+    public List<Call> getCalls() {
+        return Collections.unmodifiableList(calls);
     }
 }

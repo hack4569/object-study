@@ -1,10 +1,10 @@
-package com.study.object.dry;
+package com.study.object.dry.step02;
 
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NightlyDiscountPhone extends AbstractPhone{
+public class NightlyDiscountPhone extends AbstractPhone {
     private static final int LATE_NIGHT_HOUR = 22;
 
     private Money nightlyAmount;
